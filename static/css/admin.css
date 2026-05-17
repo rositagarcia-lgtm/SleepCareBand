@@ -1,0 +1,22 @@
+#header img,
+.sidebar img,
+img[src*="logo.png"] {
+
+    width: 170px !important;
+    height: auto !important;
+    max-height: none !important;
+
+}
+
+.sidebar-header {
+
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+
+}
+
+.sidebar {
+
+    width: 340px !important;
+
+}
