@@ -12,7 +12,7 @@ SECRET_KEY = 'django-insecure-z)bc(=%5v$a7xhr191r^juu#e6@bdoz*n4h=bf3@&v2cp4uu)g
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # =========================================
@@ -20,8 +20,6 @@ ALLOWED_HOSTS = []
 # =========================================
 
 INSTALLED_APPS = [
-
-    "unfold",
 
     "django.contrib.admin",
     "django.contrib.auth",

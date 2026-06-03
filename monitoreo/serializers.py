@@ -19,6 +19,25 @@ class PacienteSerializer(serializers.ModelSerializer):
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
+
+    def validate_correo(self, value):
+
+        dominios_permitidos = [
+            "gmail.com",
+            "hotmail.com",
+            "outlook.com",
+            "tecsup.edu.pe"
+        ]
+
+        dominio = value.split("@")[-1]
+
+        if dominio not in dominios_permitidos:
+            raise serializers.ValidationError(
+                "Solo se permiten correos Gmail, Hotmail, Outlook o Tecsup"
+            )
+
+        return value
+
     class Meta:
         model = Usuario
         fields = "__all__"
@@ -65,3 +84,6 @@ class ConfirmacionAlertaSerializer(serializers.ModelSerializer):
         model = ConfirmacionAlerta
         fields = "__all__"
         
+class AsignarDispositivoSerializer(serializers.Serializer):
+    codigo_pulsera = serializers.CharField()
+    paciente_id = serializers.IntegerField()
