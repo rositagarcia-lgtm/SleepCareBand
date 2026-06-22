@@ -14,11 +14,10 @@ from .views import (
     login_usuario,
     asignar_dispositivo,
     recibir_datos_sensor,
-    ultimas_alertas   # 👈 IMPORTANTE
+    ultimas_alertas
 )
 
 router = DefaultRouter()
-
 router.register("pacientes", PacienteViewSet)
 router.register("usuarios", UsuarioViewSet)
 router.register("paciente-usuarios", PacienteUsuarioViewSet)
@@ -32,15 +31,15 @@ router.register("confirmaciones-alerta", ConfirmacionAlertaViewSet)
 urlpatterns = [
     path("", include(router.urls)),
 
-    # 🔐 LOGIN
+    # 🔐 LOGIN -> Accesible en: /api/login/
     path("login/", login_usuario),
 
-    # 📡 DISPOSITIVOS
+    # 📡 DISPOSITIVOS -> Accesible en: /api/asignar-dispositivo/
     path("asignar-dispositivo/", asignar_dispositivo),
 
-    # ❤️ SENSOR ESP32
+    # ❤️ SENSOR ESP32 -> Accesible en: /api/recibir-sensor/
     path("recibir-sensor/", recibir_datos_sensor),
 
-    # 🚨 NUEVO: ALERTAS PARA ANDROID
+    # 🚨 ALERTAS PARA ANDROID -> Accesible en: /api/ultimas_alertas/
     path("ultimas_alertas/", ultimas_alertas),
 ]
